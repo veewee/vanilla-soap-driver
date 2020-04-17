@@ -12,11 +12,11 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 use WsdlTools\Metadata\WsdlMetadataProvider;
 use WsdlTools\Wsdl;
 
-class TestCommand extends Command
+class ParseMetadataCommand extends Command
 {
     public static function getDefaultName()
     {
-        return 'test';
+        return 'parse:meta';
     }
 
     protected function configure()

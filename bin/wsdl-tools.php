@@ -8,7 +8,7 @@ $application->addCommands([
     new \WsdlTools\Console\Command\ImportWsdlCommand(),
     new \WsdlTools\Console\Command\ListDuplicateTypesCommand(),
     new \WsdlTools\Console\Command\ListIteratorsTypesCommand(),
-    new \WsdlTools\Console\Command\TestCommand(),
+    new \WsdlTools\Console\Command\ParseMetadataCommand(),
     new \WsdlTools\Console\Command\ValidateWsdlCommand(),
 ]);
 
