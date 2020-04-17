@@ -9,6 +9,7 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
+use Symfony\Component\Filesystem\Filesystem;
 use WsdlTools\Validator\Chain;
 use WsdlTools\Validator\Document\XsdValidator;
 use WsdlTools\Validator\SchemaXsdValidator;
@@ -29,7 +30,7 @@ class ValidateWsdlCommand extends Command
     {
         parent::__construct();
 
-        $xsdValidator = new XsdValidator();
+        $xsdValidator = new XsdValidator(new Filesystem(), dirname(__DIR__, 3).DIRECTORY_SEPARATOR.'validators');
         $this->validator = new Chain(
             new WsdlXsdValidator($xsdValidator),
             new SchemaXsdValidator($xsdValidator)

@@ -18,6 +18,6 @@ class WsdlXsdValidator implements ValidatorInterface
 
     public function validate(Wsdl $wsdl): \Generator
     {
-        yield from $this->validator->validate($wsdl->document(), dirname(__DIR__, 2).'/validators/wsdl.xsd');
+        yield from $this->validator->validate($wsdl->document(), 'wsdl.xsd');
     }
 }

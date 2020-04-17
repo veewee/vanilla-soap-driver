@@ -22,7 +22,7 @@ class SchemaXsdValidator implements ValidatorInterface
         $schemas = new SchemaIterator($wsdl);
         foreach ($schemas as $schema) {
             $document = $this->createDocumentFromSchema($schema);
-            yield from $this->validator->validate($document, dirname(__DIR__, 2).'/validators/XMLSchema.xsd');
+            yield from $this->validator->validate($document, 'XMLSchema.xsd');
         }
     }
 
