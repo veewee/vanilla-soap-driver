@@ -2,6 +2,7 @@
     "require": {
         "php": ">7.4",
         "ext-libxml": "*",
+        "ext-dom": "*",
         "goetas-webservices/wsdl-reader": "^0.3.5",
         "phpro/soap-client": "^1.1",
         "symfony/console": "^5.0",
@@ -12,6 +13,9 @@
     "autoload": {
         "psr-4": {
             "WsdlTools\\": "src/"
-        }
+        },
+        "files": [
+            "src/functions.php"
+        ]
     }
 }
