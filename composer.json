@@ -17,5 +17,8 @@
         "files": [
             "src/functions.php"
         ]
+    },
+    "require-dev": {
+        "zendframework/zend-code": "^3.1.0"
     }
 }

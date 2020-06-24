@@ -23,9 +23,9 @@ class TypeProvider
             yield $this->parseFromType($type);
         }
 
-        /*foreach ($schema->getElements() as $element) {
+        foreach ($schema->getElements() as $element) {
             yield dump($this->parseFromElement($element));
-        }*/
+        }
 
         foreach ($schema->getSchemas() as $internalSchema) {
             if ($internalSchema === $schema || $internalSchema->getTargetNamespace() === 'http://www.w3.org/2001/XMLSchema') {
@@ -107,18 +107,18 @@ class TypeProvider
 
     private function parseFromElement(ElementDef $element): PhproSoapType
     {
-        throw new \RuntimeException('todo');
-
-        $element->getType()->getRestriction() && $element->getType()->getRestriction()->getChecks();
-
-        $element->getType()->getRestriction();
-        return (new ExtendedXsdType($element->getName()))
-            ->withMeta([
-                'docs' =>$element->getDoc(),
-                'abstract' => $element->getType() && $element->getType()->isAbstract(),
-                // 'extension' => $element->getType()->getExtension()->getBase()->getName(),
-                // 'resitriction'
-            ])
-            ->withXmlNamespace($element->getSchema()->getTargetNamespace());
+        return new PhproSoapType(
+            (new ExtendedXsdType($element->getName()))
+                ->withMeta([
+                    'docs' =>$element->getDoc(),
+                    'abstract' => $element->getType() && $element->getType()->isAbstract(),
+                    // TODO :
+                    // 'extension' => $element->getType()->getExtension()->getBase()->getName(),
+                    // 'resitriction'
+                    // $element->getType()->getRestriction() && $element->getType()->getRestriction()->getChecks();
+                ])
+                ->withXmlNamespace($element->getSchema()->getTargetNamespace()),
+            [...$this->parseProperties($element->getType())]
+        );
     }
 }

@@ -32,7 +32,8 @@ class ParseMetadataCommand extends Command
 
         $metadata = new WsdlMetadataProvider($wsdl);
 
-        dump($metadata->getMethods(), $metadata->getTypes());
+        //dump($metadata->getMethods(), $metadata->getTypes());
+        dump($metadata->getMethods());
 
         return 0;
     }
