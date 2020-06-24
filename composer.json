@@ -3,12 +3,12 @@
         "php": ">7.4",
         "ext-libxml": "*",
         "ext-dom": "*",
-        "goetas-webservices/wsdl-reader": "^0.3.5",
         "phpro/soap-client": "^1.1",
         "symfony/console": "^5.0",
         "symfony/var-dumper": "^5.0",
         "symfony/stopwatch": "^5.0",
-        "symfony/filesystem": "^5.0"
+        "symfony/filesystem": "^5.0",
+        "goetas-webservices/xsd-reader": "dev-master as 0.3.7"
     },
     "autoload": {
         "psr-4": {

@@ -23,7 +23,7 @@ class ServiceDetector
         $ports = iterator_to_array(new PortIterator($wsdl), true);
         $bindings = iterator_to_array(new BindingIterator($wsdl), true);
         $messages = iterator_to_array(new MessageIterator($wsdl), true);
-        $namespaces = iterator_to_array(new NamespaceIterator($wsdl), true);
+        $namespaces = iterator_to_array(NamespaceIterator::forRootElement($wsdl), true);
 
         foreach ($services as $service) {
             $requiredPort = $service['port']['name'];

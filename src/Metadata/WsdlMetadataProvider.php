@@ -7,8 +7,11 @@ namespace WsdlTools\Metadata;
 use Phpro\SoapClient\Soap\Engine\Metadata\Collection\MethodCollection;
 use Phpro\SoapClient\Soap\Engine\Metadata\Collection\TypeCollection;
 use Phpro\SoapClient\Soap\Engine\Metadata\MetadataInterface;
+use WsdlTools\Metadata\Detector\SchemaDetector;
 use WsdlTools\Metadata\Detector\ServiceDetector;
 use WsdlTools\Metadata\Parser\MethodsParser;
+use WsdlTools\Metadata\Parser\TypesParser;
+use WsdlTools\Metadata\Provider\TypeProvider;
 use WsdlTools\Wsdl;
 
 class WsdlMetadataProvider implements MetadataInterface
@@ -22,6 +25,7 @@ class WsdlMetadataProvider implements MetadataInterface
 
     public function getTypes(): TypeCollection
     {
+        return (new TypesParser(new SchemaDetector(), new TypeProvider()))->parse($this->wsdl);
     }
 
     public function getMethods(): MethodCollection
