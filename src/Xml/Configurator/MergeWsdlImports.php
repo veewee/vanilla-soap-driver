@@ -38,6 +38,7 @@ final class MergeWsdlImports
 
             // TODO : $import->getAttribute('namespace')
             // @see http://itdoc.hitachi.co.jp/manuals/3020/30203Y2310e/EY230669.HTM#ID01496
+            // -> targetNamespace
 
             replaceByExternalNode($import, documentFromXmlString(
                 $this->loader->load($location),

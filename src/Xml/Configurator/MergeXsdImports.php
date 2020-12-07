@@ -39,6 +39,7 @@ final class MergeXsdImports
 
             // TODO :
             // TODO : $import->getAttribute('namespace')
+            // -> targetNamespace
 
             replaceByExternalNode($import, documentFromXmlString(
                 $this->loader->load($location),
